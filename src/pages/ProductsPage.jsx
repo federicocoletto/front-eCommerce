@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllProductsThunk } from '../store/slices/products.slice';
 
 const ProductsPage = () => {
 	const productos = [
@@ -84,7 +86,17 @@ const ProductsPage = () => {
 		{
 			name: "Bedroom Essentials"
 		},
-	]
+	];
+
+	const dispatch = useDispatch()
+
+	const products = useSelector(states => states.products)
+
+	useEffect(() => {
+		dispatch(getAllProductsThunk())
+	}, [])
+
+	console.log(products);
 
 	const handleAdd = () => {}
 
@@ -97,7 +109,7 @@ const ProductsPage = () => {
 					<div className="category__filter">
 						<label htmlFor="categories">Choose a category:</label>
 					<select name="Filter by category" id="">
-						<option value="Categories" aria-required="false" disabled="true">Categories</option>
+						<option value="Categories" disabled="true">Categories</option>
 						{
 							categories.map(cat => (
 								<option value={cat.name}>{cat.name}</option>
@@ -117,7 +129,7 @@ const ProductsPage = () => {
 							</div>
 							<div className="card__body">
 								<p className="product__description">{prod.description}</p>
-								<h4 className="product__price">$ {prod.price}</h4>
+								<h4 className="product__price">$ {+prod.price}</h4>
 								<div className="product__buttons">
 									<button className="product__button add" onClick={handleAdd}>+</button>
 									<button className="product__button quantity">5</button>
