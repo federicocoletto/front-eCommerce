@@ -1,0 +1,53 @@
+.app {
+	background-color: var(--white);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.df {
+	display: flex;
+}
+
+.dfc {
+	display: flex;
+	flex-direction: column;
+}
+
+.page {
+	min-height: 100vh;
+	min-width: 100vw;
+	max-width: 1280px;
+	padding: 3rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.form {
+	background-color: var(--lime-green);
+	width: 100%;
+	max-width: 30rem;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	padding: 2rem;
+}
+
+.form__entry {
+	display: flex;
+	flex-direction: column;
+	gap: .5rem;
+}
+
+.form__buttons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+}
+
+.form__buttons p {
+	margin-top: 1rem;
+	color: var(--licorice);
+}
