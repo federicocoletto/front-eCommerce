@@ -9,6 +9,7 @@ import Navbar from './components/Navbar'
 import ProtectedRoutes from './pages/ProtectedRoutes'
 import ProductsPage from './pages/ProductsPage'
 import HomePage from './pages/HomePage'
+import CartPage from './pages/CartPage'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
 				{/* protected routes */}
 				<Route element={<ProtectedRoutes />}>
 					<Route path='/products' element={<ProductsPage />} />
+					<Route path='/cart' element={<CartPage />} />					
 				</Route>
 			</Routes>
 		</div>

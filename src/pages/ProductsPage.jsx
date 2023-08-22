@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProductsThunk } from '../store/slices/products.slice';
+import { getCartThunk, postCartThunk } from '../store/slices/cart.slice';
 
 const ProductsPage = () => {
 	const productos = [
@@ -91,54 +92,56 @@ const ProductsPage = () => {
 	const dispatch = useDispatch()
 
 	const products = useSelector(states => states.products)
+	const cart = useSelector(states => states.cart)
 
 	useEffect(() => {
 		dispatch(getAllProductsThunk())
+		dispatch(getCartThunk())
 	}, [])
 
-	console.log(products);
-
-	const handleAdd = () => {}
+	console.log(cart);
 
 	return (
-
-		<div className='home page'>
-			<header className='home__header'>
+		<div className='page products'>
+			<header className='page__header products'>
 				<h1>Products - Forniture</h1>
-				<div className="filters">
-					<div className="category__filter">
+				<div className="page__header-filters">
+					<div className="filters byCategory">
 						<label htmlFor="categories">Choose a category:</label>
-					<select name="Filter by category" id="">
-						<option value="Categories" disabled="true">Categories</option>
-						{
-							categories.map(cat => (
-								<option value={cat.name}>{cat.name}</option>
-							))
-						}
-					</select>
+						<select name="Filter by category" id="">
+							<option value="Categories" disabled={true} >Categories</option>
+							{
+								categories.map(cat => (
+									<option value={cat.name} key={cat.id}>{cat.name}</option>
+								))
+							}
+						</select>
 					</div>
 				</div>
 			</header>
-			<section className='products__cards'>
-				{
-					productos.map(prod => (
-						<div className="product__card">
-							<div className="card__header">
-								<h2 className='product__title'>{prod.title}</h2>
-								<img className='product__img' src="https://www.vigfurniture.com/media/catalog/product/cache/6d4faa98f2b48c05dae02148ead85f2f/n/a/natalia_vgkk_78208_black_sofa_1.jpg" alt="" />
-							</div>
-							<div className="card__body">
-								<p className="product__description">{prod.description}</p>
-								<h4 className="product__price">$ {+prod.price}</h4>
-								<div className="product__buttons">
-									<button className="product__button add" onClick={handleAdd}>+</button>
-									<button className="product__button quantity">5</button>
-									<button className="product__button less">-</button>
-								</div>
+			<section className='page__body products__cards'>
+			{
+				products.map(prod => (
+					<div className="product__card" key={prod.id}>
+						<div className="card__header">
+							<h2 className='product__title'>{prod.title}</h2>
+							<img className='product__img' src="https://www.vigfurniture.com/media/catalog/product/cache/6d4faa98f2b48c05dae02148ead85f2f/n/a/natalia_vgkk_78208_black_sofa_1.jpg" alt="" />
+						</div>
+						<div className="card__body">
+							<p className="product__description">{prod.description}</p>
+							<h4 className="product__price">$ {+prod.price}</h4>
+							<div className="product__buttons">
+								<button className="product__button add" onClick={() => {
+									dispatch(postCartThunk(prod, 1))
+									window.alert(`${prod.title} has been added to your cart ✅`)
+								}}>
+									Add to chart
+								</button>
 							</div>
 						</div>
-					))
-				}
+					</div>
+				))
+			}
 			</section>
 		</div>
 	)
