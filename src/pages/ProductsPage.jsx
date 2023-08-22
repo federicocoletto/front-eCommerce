@@ -99,8 +99,6 @@ const ProductsPage = () => {
 		dispatch(getCartThunk())
 	}, [])
 
-	console.log(cart);
-
 	return (
 		<div className='page products'>
 			<header className='page__header products'>

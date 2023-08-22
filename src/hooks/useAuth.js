@@ -4,7 +4,6 @@ const useAuth = () => {
 	const registerUser = (url, data) => {
 		axios
 			.post(url, data)
-			.then((res) => console.log(res.data))
 			.catch((err) => console.log(err));
 	};
 	const loginUser = (url, data) => {

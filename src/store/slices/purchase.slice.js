@@ -27,8 +27,7 @@ export const makePurchaseThunk = () => (dispatch) => {
 	axios
 		.post(base_URL, null, getConfigAuth())
 		.then((res) => {
-			console.log(res.data);
-			dispatch(setCartG([]));
+			dispatch(setPurchaseG([res.data]));
 		})
 		.catch((err) => console.log(err));
 };

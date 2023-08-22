@@ -19,8 +19,6 @@ const LoginPage = () => {
 		dispatch(getUsersThunk())
 	}, [])
 
-	console.log(users);
-
 	const submit = (data) => {
 		loginUser(url, data)
 		navigate('/products')

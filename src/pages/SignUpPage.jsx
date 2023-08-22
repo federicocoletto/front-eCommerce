@@ -20,8 +20,6 @@ const SignUpPage = () => {
 		dispatch(getUsersThunk())
 	}, [])
 
-	console.log(users)
-
 	const submit = (data) => {
 		registerUser(url, data)
 		reset({

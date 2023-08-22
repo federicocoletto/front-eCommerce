@@ -58,7 +58,6 @@ export const deleteCartThunk = (id) => (dispatch) => {
 	axios
 		.delete(url, getConfigAuth())
 		.then((res) => {
-			console.log(res.data);
 			dispatch(deleteProductCartG(id));
 		})
 		.catch((err) => console.log(err));
@@ -76,7 +75,6 @@ export const updateCartThunk = (cartproduct, quantity) => (dispatch) => {
 				...res.data,
 				product: cartproduct.product,
 			};
-			console.log(res.data);
 			dispatch(updateProductCartG(obj));
 		})
 		.catch((err) => console.log(err));

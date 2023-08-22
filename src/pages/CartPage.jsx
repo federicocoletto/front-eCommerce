@@ -82,7 +82,7 @@ const CartPage = () => {
 				<h3 className='total__price'><span>Total:</span> $ {totalPrice}</h3>
 				<button onClick={() => {
 					navigate('/purchase')
-					dispatch(makePurchaseThunk())
+					dispatch(makePurchaseThunk(cart))
 				}}>Purchase</button>
 			</footer>
 		</div>
