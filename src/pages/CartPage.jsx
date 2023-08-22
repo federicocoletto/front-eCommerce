@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteCartThunk, getCartThunk, updateCartThunk } from '../store/slices/cart.slice'
+import { useNavigate } from 'react-router-dom'
+import { makePurchaseThunk } from '../store/slices/purchase.slice'
 
 const CartPage = () => {
 
@@ -9,6 +11,7 @@ const CartPage = () => {
 
 	const dispatch = useDispatch()
 	const [totalPrice, setTotalPrice] = useState(total)
+	const navigate = useNavigate()
 
 	useEffect(() => {
 		dispatch(getCartThunk())
@@ -77,6 +80,10 @@ const CartPage = () => {
 			<footer className="page__footer cart__purchase">
 				<h3 className='total__products'></h3>
 				<h3 className='total__price'><span>Total:</span> $ {totalPrice}</h3>
+				<button onClick={() => {
+					navigate('/purchase')
+					dispatch(makePurchaseThunk())
+				}}>Purchase</button>
 			</footer>
 		</div>
 	)

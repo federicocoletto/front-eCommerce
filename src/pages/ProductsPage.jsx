@@ -108,7 +108,7 @@ const ProductsPage = () => {
 				<div className="page__header-filters">
 					<div className="filters byCategory">
 						<label htmlFor="categories">Choose a category:</label>
-						<select name="Filter by category" id="">
+						<select name="Filter by category" id="categoryId">
 							<option value="Categories" disabled={true} >Categories</option>
 							{
 								categories.map(cat => (

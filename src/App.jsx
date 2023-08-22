@@ -10,6 +10,7 @@ import ProtectedRoutes from './pages/ProtectedRoutes'
 import ProductsPage from './pages/ProductsPage'
 import HomePage from './pages/HomePage'
 import CartPage from './pages/CartPage'
+import PurchasePage from './pages/PurchasePage'
 
 function App() {
 
@@ -23,7 +24,8 @@ function App() {
 				{/* protected routes */}
 				<Route element={<ProtectedRoutes />}>
 					<Route path='/products' element={<ProductsPage />} />
-					<Route path='/cart' element={<CartPage />} />					
+					<Route path='/cart' element={<CartPage />} />
+					<Route path='/purchase' element={<PurchasePage />} />					
 				</Route>
 			</Routes>
 		</div>
