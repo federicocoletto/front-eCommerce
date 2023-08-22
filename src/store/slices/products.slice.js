@@ -13,7 +13,7 @@ export const { setProductsG } = productsSlice.actions;
 
 export default productsSlice.reducer;
 
-const base_URL = "http://localhost:8080/api/v1/products";
+const base_URL = "https://ecommerce-fck-nodejs.onrender.com/api/v1/products";
 export const getAllProductsThunk =
 	(url = base_URL) =>
 	(dispatch) => {

@@ -15,7 +15,7 @@ export const { setPurchaseG, addPurchaseG } = purchaseSlice.actions;
 
 export default purchaseSlice.reducer;
 
-const base_URL = "http://localhost:8080/api/v1/purchase";
+const base_URL = "https://ecommerce-fck-nodejs.onrender.com/api/v1/purchase";
 export const getPurchaseThunk = () => (dispatch) => {
 	axios
 		.get(base_URL, getConfigAuth())

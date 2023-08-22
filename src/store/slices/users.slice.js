@@ -16,7 +16,7 @@ export const { setUsersG } = usersSlice.actions;
 export default usersSlice.reducer;
 
 // thunks
-const base_URL = "http://localhost:8080/api/v1/users";
+const base_URL = "https://ecommerce-fck-nodejs.onrender.com/api/v1/users";
 
 export const getUsersThunk = () => (dispatch) => {
 	const url = base_URL;

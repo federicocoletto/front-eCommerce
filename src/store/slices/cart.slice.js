@@ -25,7 +25,7 @@ export const { setCartG, addProductCartG, deleteProductCartG, updateProductCartG
 
 export default cartSlice.reducer;
 
-const base_URL = "http://localhost:8080/api/v1/cart";
+const base_URL = "https://ecommerce-fck-nodejs.onrender.com/api/v1/cart";
 export const getCartThunk =
 	(url = base_URL) =>
 	(dispatch) => {

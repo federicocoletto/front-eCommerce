@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 const SignUpPage = () => {
 
-	const url = "http://localhost:8080/api/v1/users";
+	const url = "https://ecommerce-fck-nodejs.onrender.com/api/v1/users";
 	const { handleSubmit, register, reset } = useForm()
 	const { registerUser } = useAuth()
 

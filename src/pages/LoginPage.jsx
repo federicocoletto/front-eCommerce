@@ -12,7 +12,7 @@ const LoginPage = () => {
 	const dispatch = useDispatch()
 	const { loginUser } = useAuth()
 
-	const url = "http://localhost:8080/api/v1/users/login";
+	const url = "https://ecommerce-fck-nodejs.onrender.com/api/v1/users/login";
 	const users = useSelector(states => states.users)
 
 	useEffect(() => {
