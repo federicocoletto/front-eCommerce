@@ -98,6 +98,7 @@ const ProductsPage = () => {
 		dispatch(getAllProductsThunk())
 		dispatch(getCartThunk())
 	}, [])
+	console.log(products[1]?.productImgs[0].url);
 
 	return (
 		<div className='page products'>
@@ -123,7 +124,7 @@ const ProductsPage = () => {
 					<div className="product__card" key={prod.id}>
 						<div className="card__header">
 							<h2 className='product__title'>{prod.title}</h2>
-							<img className='product__img' src="https://www.vigfurniture.com/media/catalog/product/cache/6d4faa98f2b48c05dae02148ead85f2f/n/a/natalia_vgkk_78208_black_sofa_1.jpg" alt="" />
+							<img className='product__img' src={prod.productImgs.url || ''} alt="" />
 						</div>
 						<div className="card__body">
 							<p className="product__description">{prod.description}</p>
